@@ -1,0 +1,81 @@
+<template>
+  <HeaderFile />
+  <h1>Welcome to user info</h1>
+  <table class="selectedSectorsTable" border="1">
+    <tr class="fieldName">
+      <td>{{ selectionInfo }}</td>
+    </tr>
+    <tr class="column" v-for="(item) in allSelectedSectors" :key="item.id">
+      <td>{{item.sectorName}}</td>
+    </tr>
+  </table>
+  <button class="editButton" v-on:click="goEdit">Edit your choices</button>
+</template>
+
+<script>
+import HeaderFile from "@/components/pages/HeaderFile.vue";
+import router from "@/routers";
+import axios from "axios";
+
+export default {
+  name:'UserInfo',
+  data(){
+    return {
+      selectionInfo: 'You don´t have any selections',
+      allSelectedSectors: []
+    }
+  },
+  components:{
+    HeaderFile
+  },
+  methods:{
+    goEdit() {
+      router.push({name:'SectorsPage'});
+    }
+  },
+  async mounted() {
+    let user = localStorage.getItem('user-id')
+    if (!user) {
+      await router.push({name:'LoginPage'})
+    }
+    let selected = await axios.get("http://localhost:8080/api/userSelections/" + user);
+    this.allSelectedSectors = selected.data;
+    if (this.allSelectedSectors.length > 0) {
+      this.selectionInfo = 'Your selections are here:';
+    } else {
+      this.selectionInfo = 'You don´t have any selections';
+    }
+  }
+}
+</script>
+
+<style>
+.selectedSectorsTable{
+  position: relative;
+  top: 45%;
+  left: 25%;
+  text-align: left;
+  padding: 30px;
+  font-size: 30px;
+}
+.editButton{
+  width: 300px;
+  height: 80px;
+  padding-left: 10px;
+  display: block;
+  margin: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 12px saddlebrown ridge;
+  background-color: yellow;
+  font-size: 30px;
+  color: darkgreen;
+  font-weight: bold;
+}
+.editButton:hover{
+  border: 12px yellow ridge;
+  background-color: saddlebrown;
+  color: greenyellow;
+  cursor: pointer;
+}
+</style>
