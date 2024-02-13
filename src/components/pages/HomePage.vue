@@ -1,7 +1,7 @@
 <template>
   <HeaderFile />
   <div class="hello">
-    <h1>Welcome to the homepage</h1>
+    <h1 class="homePageHeader">Welcome to the homepage</h1>
   </div>
 </template>
 
@@ -25,6 +25,10 @@ export default {
 </script>
 
 <style scoped>
+.homePageHeader{
+  font-size: 40px;
+  color: midnightblue;
+}
 h3 {
   margin: 40px 0 0;
 }

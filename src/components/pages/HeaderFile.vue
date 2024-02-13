@@ -23,11 +23,11 @@ export default {
 
 <style>
 .navbar{
-  background-color: orangered;
+  background-color: palegreen;
   padding: 15px;
 }
 .navText{
-  color: purple;
+  color: darkgreen;
   padding: 30px;
   font-size: 40px;
   font-weight: bold;
@@ -37,14 +37,14 @@ export default {
   color: yellow;
 }
 .logoutButton{
-  color: greenyellow;
-  background-color: purple;
+  color: midnightblue;
+  background-color: orange;
   font-size: 40px;
   font-weight: bold;
 }
 .logoutButton:hover{
   color: yellow;
-  background-color: mediumpurple;
+  background-color: midnightblue;
   cursor: pointer;
 }
 </style>

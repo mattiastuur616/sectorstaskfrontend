@@ -1,12 +1,12 @@
 <template>
   <HeaderFile />
   <h1 class="userInfoHeader">All the sectors you are currently involved in</h1>
-  <table class="selectedSectorsTable" border="1">
+  <table class="selectedSectorsTable">
     <tr class="fieldName">
-      <td>{{ selectionInfo }}</td>
+      <td class="selectedSectorTitle">{{ selectionInfo }}</td>
     </tr>
     <tr class="column" v-for="(item) in allSelectedSectors" :key="item.id">
-      <td>{{item.sectorName}}</td>
+      <td class="sectorName">{{item.sectorName}}</td>
     </tr>
   </table>
   <button class="editButton" v-on:click="goEdit">Edit your choices</button>
@@ -50,9 +50,13 @@ export default {
 </script>
 
 <style>
+.selectedSectorTitle{
+  font-size: 30px;
+  padding-bottom: 10px;
+}
 .userInfoHeader{
   font-size: 40px;
-  color: gold;
+  color: midnightblue;
 }
 .selectedSectorsTable{
   position: relative;
@@ -65,20 +69,18 @@ export default {
 .editButton{
   width: 300px;
   height: 80px;
-  padding-left: 10px;
   display: block;
-  margin: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 12px saddlebrown ridge;
-  background-color: yellow;
-  font-size: 30px;
+  margin-left: 580px;
+  margin-bottom: 60px;
+  border: 12px yellow ridge;
+  background-color: palegreen;
+  font-size: 25px;
   color: darkgreen;
   font-weight: bold;
 }
 .editButton:hover{
   border: 12px yellow ridge;
-  background-color: saddlebrown;
+  background-color: darkgreen;
   color: greenyellow;
   cursor: pointer;
 }

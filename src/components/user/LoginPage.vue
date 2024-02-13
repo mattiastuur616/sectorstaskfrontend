@@ -47,9 +47,9 @@ export default {
 
 <style>
 .h1{
-  color: yellow;
+  color: blue;
   font-size: 60px;
-  background-color: orangered;
+  background-color: palegreen;
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -61,31 +61,31 @@ export default {
   margin-bottom: 30px;
   margin-left: auto;
   margin-right: auto;
-  border: 12px saddlebrown ridge;
-  background-color: yellow;
+  border: 12px yellow ridge;
+  background-color: palegreen;
   font-size: 35px;
 }
 .login button{
   width: 300px;
   height: 70px;
-  border: 8px saddlebrown ridge;
+  border: 8px yellow ridge;
   margin-top: 30px;
-  background-color: yellow;
+  background-color: palegreen;
   font-size: 35px;
   color: darkgreen;
   font-weight: bold;
 }
 .login button:hover{
   border: 8px yellow ridge;
-  background-color: saddlebrown;
+  background-color: darkgreen;
   color: greenyellow;
   cursor: pointer;
 }
 .routerLink{
   width: 300px;
   height: 90px;
-  border: 8px saddlebrown ridge;
-  background-color: yellow;
+  border: 8px yellow ridge;
+  background-color: palegreen;
   font-size: 35px;
   color: darkgreen;
   font-weight: bold;
@@ -93,7 +93,7 @@ export default {
 }
 .routerLink:hover{
   border: 8px yellow ridge;
-  background-color: saddlebrown;
+  background-color: darkgreen;
   color: greenyellow;
 }
 </style>

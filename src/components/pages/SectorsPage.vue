@@ -1,24 +1,24 @@
 <template>
   <HeaderFile />
-  <h1>Choose your sectors</h1>
+  <h1 class="userInfoHeader">Choose your sectors</h1>
   <input class="username" type="text" v-model="username" placeholder="Enter Your name" />
-  <table class="sectorTable" border="1">
-    <tr class="fieldName">
-      <td>Sector</td>
+  <table class="sectorTable">
+    <tr class="fieldName" >
+      <td class="sectorTitle">Sectors</td>
     </tr>
     <tr class="column" v-for="(item, index) in sectors" :key="item.id">
-      <td>{{item.sectorName}}</td>
+      <td class="sectorName">{{item.sectorName}}</td>
       <td class="button" v-on:click="changeSectorView(item.sectorName, index)">{{item.actionType}}</td>
       <td class="secondButton" v-on:click="moveSector(item)">{{item.addOrRemove}}</td>
     </tr>
   </table>
   <br>
-  <table class="sectorTable" border="1">
+  <table class="sectorTable">
     <tr class="fieldName">
-      <td>{{decideSelectionInfo(this.selectedSectors.length)}}</td>
+      <td class="sectorTitle">{{decideSelectionInfo(this.selectedSectors.length)}}</td>
     </tr>
     <tr class="column" v-for="(item) in selectedSectors" :key="item.id">
-      <td>{{item.sectorName}}</td>
+      <td class="sectorName">{{item.sectorName}}</td>
       <td class="secondButton" v-on:click="moveSector(item)">{{item.addOrRemove}}</td>
     </tr>
   </table>
@@ -189,48 +189,74 @@ export default {
 </script>
 
 <style>
+body{
+  background-color: lightskyblue;
+}
 .username{
   position: relative;
-  right: 35%;
   width: 300px;
   height: 40px;
   padding-left: 10px;
   display: block;
-  margin: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  border: 12px saddlebrown ridge;
-  background-color: yellow;
+  margin-top: 50px;
+  margin-left: 70px;
+  margin-bottom: 20px;
+  border: 12px yellow ridge;
+  background-color: palegreen;
   font-size: 25px;
   color: darkgreen;
   font-weight: bold;
 }
 .fieldName{
   font-weight: bold;
-  color: purple;
+  color: darkgreen;
+}
+.sectorTitle{
+  padding-left: 30px;
+  font-size: 40px;
 }
 .sectorTable{
   position: relative;
   top: 45%;
   text-align: left;
-  padding: 30px;
+  padding: 20px;
   font-size: 30px;
 }
+.sectorName{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 30px;
+  border: 7px yellow ridge;
+  color: midnightblue;
+  background-color: orange;
+}
 .column{
+  border: 12px saddlebrown ridge;
+  background-color: palegreen;
   padding: 30px;
 }
 .button{
-  color: greenyellow;
+  padding: 10px;
+  color: darkgreen;
+  border: 7px yellow ridge;
+  font-weight: bold;
 }
 .button:hover{
-  color: darkgreen;
+  color: greenyellow;
+  background-color: darkgreen;
   cursor: pointer;
 }
 .secondButton{
+  padding: 10px;
   color: darkviolet;
+  border: 7px yellow ridge;
+  font-weight: bold;
 }
 .secondButton:hover{
-  color: #2c3e50;
+  color: violet;
+  background-color: darkgreen;
   cursor: pointer;
 }
 .checkTick{
@@ -240,7 +266,7 @@ export default {
   margin-top: 40px;
 }
 .tickText{
-  color: saddlebrown;
+  color: darkgreen;
   padding-left: 10px;
   font-size: 30px;
   position: relative;
@@ -257,15 +283,15 @@ export default {
   margin: 15px;
   margin-left: auto;
   margin-right: auto;
-  border: 12px saddlebrown ridge;
-  background-color: yellow;
+  border: 12px yellow ridge;
+  background-color: palegreen;
   font-size: 25px;
   color: darkgreen;
   font-weight: bold;
 }
 .submit:hover{
   border: 12px yellow ridge;
-  background-color: saddlebrown;
+  background-color: darkgreen;
   color: greenyellow;
   cursor: pointer;
 }
