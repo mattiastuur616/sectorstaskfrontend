@@ -19,6 +19,7 @@
     </tr>
     <tr class="column" v-for="(item) in selectedSectors" :key="item.id">
       <td>{{item.sectorName}}</td>
+      <td class="secondButton" v-on:click="moveSector(item)">{{item.addOrRemove}}</td>
     </tr>
   </table>
   <br>
@@ -182,6 +183,7 @@ export default {
     this.sectors.forEach((sector) => {sector.actionType = this.decideStatus()});
     this.sectors.forEach((sector) => {sector.addOrRemove = this.decideAddOrRemove()});
     this.sectors.forEach((sector) => {sector.addOrRemove = this.checkIfSelected(sector)})
+    this.previousSelections.forEach((sector) => {sector.addOrRemove = this.checkIfSelected(sector)})
   }
 }
 </script>

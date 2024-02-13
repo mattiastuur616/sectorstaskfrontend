@@ -1,6 +1,6 @@
 <template>
   <HeaderFile />
-  <h1>Welcome to user info</h1>
+  <h1 class="userInfoHeader">All the sectors you are currently involved in</h1>
   <table class="selectedSectorsTable" border="1">
     <tr class="fieldName">
       <td>{{ selectionInfo }}</td>
@@ -41,7 +41,7 @@ export default {
     let selected = await axios.get("http://localhost:8080/api/userSelections/" + user);
     this.allSelectedSectors = selected.data;
     if (this.allSelectedSectors.length > 0) {
-      this.selectionInfo = 'Your selections are here:';
+      this.selectionInfo = 'You have selected following sectors:';
     } else {
       this.selectionInfo = 'You don´t have any selections';
     }
@@ -50,6 +50,10 @@ export default {
 </script>
 
 <style>
+.userInfoHeader{
+  font-size: 40px;
+  color: gold;
+}
 .selectedSectorsTable{
   position: relative;
   top: 45%;
