@@ -48,7 +48,6 @@ export default {
       moreSectors: [],
       selectedSectors: [],
       previousSelections: [],
-      value: 0,
       actionType: 'Show more',
       addOrRemove: 'Add',
       selectionInfo: 'You don´t have any selections',
@@ -121,14 +120,6 @@ export default {
         return 'Show less';
       }
     },
-    decideAddOrRemove()
-    {
-      if (this.addOrRemove === 'Remove') {
-        return 'Remove';
-      } else if (this.addOrRemove === 'Add') {
-        return 'Add';
-      }
-    },
     decideSelectionInfo(length)
     {
       if (length === 1) {
@@ -181,8 +172,8 @@ export default {
     this.previousSelections = previousSelections.data;
     this.selectedSectors = this.previousSelections;
     this.sectors = sectors.data;
+
     this.sectors.forEach((sector) => {sector.actionType = this.decideStatus()});
-    this.sectors.forEach((sector) => {sector.addOrRemove = this.decideAddOrRemove()});
     this.sectors.forEach((sector) => {sector.addOrRemove = this.checkIfSelected(sector)})
     this.previousSelections.forEach((sector) => {sector.addOrRemove = this.checkIfSelected(sector)})
   }
