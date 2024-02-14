@@ -153,6 +153,7 @@ export default {
             sector.addOrRemove = 'Add';
           }
         }
+        this.sectors.forEach((sector) => {sector.addOrRemove = this.checkIfSelected(sector)});
       }
     },
     async saveChanges(username, allSectors, userAgreement)
